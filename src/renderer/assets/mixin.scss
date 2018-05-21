@@ -1,0 +1,13 @@
+@mixin rowMachine($numPerRow,$margin) {  
+    //宽度的计算，每列宽度=(总宽度-空隙总宽度)/列数=(总宽度-(列数-1)*空隙宽度)/列数  
+    width: (100% - (($numPerRow - 1) * $margin)) / $numPerRow;  
+    //处理空隙  
+    &:nth-child(n) {  
+        margin-bottom: $margin;  
+        margin-right: $margin;  
+    }  
+    //处理空隙，最后一列空隙为0  
+    &:nth-child(#{$numPerRow}n) {  
+        margin-right: 0;  
+    }  
+} 
